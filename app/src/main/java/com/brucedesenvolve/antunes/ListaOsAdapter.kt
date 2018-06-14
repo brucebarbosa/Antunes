@@ -2,6 +2,7 @@ package com.brucedesenvolve.antunes
 
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -19,14 +20,14 @@ class ListaOsAdapter(private val teste: Array<String>, private val context: Cont
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val produto = teste[position]
         holder.numeroOs.text = "1000"
-        holder.nomeCliente.text = "Diele Priscila Barbosa"
-        holder.produto.text = produto
+        holder.nome.text = "Diele Priscila Barbosa"
+        holder.aparelho.text = produto
         holder.apaparOs.setOnClickListener {
-            AlertDialog.Builder(context).setMessage("Deseja realmente apagar esta OS?")
+            AlertDialog.Builder(context).setTitle("Deseja apagar esta OS?")
                     .setPositiveButton("Apagar") {_, _ -> Toast.makeText(context, "Produto: $produto", Toast.LENGTH_SHORT).show() }
                     .setNegativeButton("Cancelar") {_, _ -> return@setNegativeButton }.create().show()
         }
-        holder.itemView.setOnClickListener{Toast.makeText(context, "Esta é a linha: $position", Toast.LENGTH_SHORT).show()}
+        holder.itemView.setOnClickListener{context.startActivity(Intent(context, EditarOsActivity::class.java))}
     }
 
     override fun getItemCount(): Int {
@@ -34,10 +35,10 @@ class ListaOsAdapter(private val teste: Array<String>, private val context: Cont
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val numeroOs = itemView.numero_os
-        val nomeCliente = itemView.nome_cliente
-        val produto = itemView.produto
-        val apaparOs = itemView.apagar_os
+        val numeroOs = itemView.tv_numero_os
+        val nome = itemView.tv_nome
+        val aparelho = itemView.tv_aparelho
+        val apaparOs = itemView.bt_apagar_os
     }
 }
 

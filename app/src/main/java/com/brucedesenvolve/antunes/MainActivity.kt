@@ -1,5 +1,6 @@
 package com.brucedesenvolve.antunes
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -12,11 +13,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        criar_os.setOnClickListener {Toast.makeText(this, "Abre activity", Toast.LENGTH_SHORT).show()}
+        bt_criar_os.setOnClickListener {startActivity(Intent(this, NovaOsActivity::class.java))}
 
         val list = arrayOf("afinador", "baixo", "cavaco", "distorcão", "escalopado", "flauta", "guitarra", "holoforte", "iGuitar", "jojoba", "ll200", "mano a mano")
 
-        lista_os.layoutManager = LinearLayoutManager(this)
-        lista_os.adapter = ListaOsAdapter(list, this)
+        rv_lista_os.layoutManager = LinearLayoutManager(this)
+        rv_lista_os.adapter = ListaOsAdapter(list, this)
     }
 }

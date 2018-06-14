@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Antunes</string>
+    <string name="app_name">Antunes OS</string>
+
+    <string name="nova_os">Nova OS</string>
 </resources>

@@ -5,20 +5,20 @@
     android:orientation="vertical">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/lista_os"
+        android:id="@+id/rv_lista_os"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:autofillHints="teste"/>
+        android:layout_weight="1"/>
 
     <Button
-        android:id="@+id/criar_os"
+        android:id="@+id/bt_criar_os"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:background="@color/colorPrimary"
         android:textSize="26sp"
         android:textStyle="bold"
-        android:text="Nova OS"/>
+        android:textColor="@color/colorAccent"
+        android:text="@string/nova_os"/>
 
 </LinearLayout>

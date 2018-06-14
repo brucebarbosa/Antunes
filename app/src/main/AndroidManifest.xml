@@ -16,6 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".EditarOsActivity"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"/>
+        <activity android:name=".NovaOsActivity"/>
     </application>
 
 </manifest>
