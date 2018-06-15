@@ -1,14 +1,12 @@
 package com.brucedesenvolve.antunes
 
-import android.app.AlertDialog
 import android.content.Context
-import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import kotlinx.android.synthetic.main.item_lista_os.view.*
+import org.jetbrains.anko.*
 
 class ListaOsAdapter(private val teste: Array<String>, private val context: Context) : RecyclerView.Adapter<ListaOsAdapter.ViewHolder>() {
 
@@ -22,12 +20,12 @@ class ListaOsAdapter(private val teste: Array<String>, private val context: Cont
         holder.numeroOs.text = "1000"
         holder.nome.text = "Diele Priscila Barbosa"
         holder.aparelho.text = produto
-        holder.apaparOs.setOnClickListener {
-            AlertDialog.Builder(context).setTitle("Deseja apagar esta OS?")
-                    .setPositiveButton("Apagar") {_, _ -> Toast.makeText(context, "Produto: $produto", Toast.LENGTH_SHORT).show() }
-                    .setNegativeButton("Cancelar") {_, _ -> return@setNegativeButton }.create().show()
+        holder.apaparOs.setOnClickListener {context.alert("Deseja apagar esta OS?" ,"Apagar") {
+                positiveButton("Apagar") {context.toast("apagar: $produto")}
+                negativeButton("Cancelar") {}
+            }.show()
         }
-        holder.itemView.setOnClickListener{context.startActivity(Intent(context, EditarOsActivity::class.java))}
+        holder.itemView.setOnClickListener{context.startActivity<EditarOsActivity>()}
     }
 
     override fun getItemCount(): Int {

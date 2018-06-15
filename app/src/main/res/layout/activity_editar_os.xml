@@ -9,9 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:paddingLeft="24dp"
-        android:paddingRight="24dp"
-        android:paddingTop="24dp">
+        android:padding="24dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,12 +26,12 @@
                 android:text="Data Entrada"/>
 
             <TextView
+                android:id="@+id/tv_data_entrada"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimaryDark"
                 android:paddingBottom="13dp"
-                android:textSize="20sp"
-                android:text="01/02/03"/>
+                android:textSize="20sp"/>
 
         </LinearLayout>
 
@@ -52,6 +50,7 @@
                 android:text="Data Orçamento Pronto"/>
 
             <br.com.sapereaude.maskedEditText.MaskedEditText
+                android:id="@+id/et_data_orcamento_pronto"
                 android:inputType="number"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
@@ -75,6 +74,7 @@
                 android:text="Data Orçamento Aprovado"/>
 
             <br.com.sapereaude.maskedEditText.MaskedEditText
+                android:id="@+id/et_data_orcamento_aprovado"
                 android:inputType="number"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
@@ -98,6 +98,7 @@
                 android:text="Data Serviço Pronto"/>
 
             <br.com.sapereaude.maskedEditText.MaskedEditText
+                android:id="@+id/et_data_servico_pronto"
                 android:inputType="number"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
@@ -107,161 +108,224 @@
         </LinearLayout>
 
         <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:layout_width="match_parent"
             android:textColorHint="@color/colorAccent">
 
             <EditText
+                android:id="@+id/et_nome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:hint="Nome"
                 android:inputType="textCapWords|textMultiLine"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
                 android:textSize="20sp" />
         </android.support.design.widget.TextInputLayout>
 
-        <!--<android.support.design.widget.TextInputLayout-->
-            <!--mask:layout_height="wrap_content"-->
-            <!--mask:layout_marginBottom="8dp"-->
-            <!--mask:layout_marginTop="8dp"-->
-            <!--mask:layout_width="match_parent"-->
-            <!--mask:textColorHint="@color/colorAccent">-->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:textColorHint="@color/colorAccent">
 
-            <!--<EditText-->
-                <!--mask:hint="Endereço"-->
-                <!--mask:id="@+id/input_endereco"-->
-                <!--mask:inputType="text|textCapCharacters|textCapWords|textCapSentences|textAutoCorrect|textAutoComplete|textMultiLine|textImeMultiLine|textNoSuggestions|textUri|textEmailAddress|textEmailSubject|textShortMessage|textLongMessage|textPersonName|textPostalAddress|textPassword|textVisiblePassword|textWebEditText|textFilter|textPhonetic|textWebEmailAddress|textWebPassword|numberDecimal|phone"-->
-                <!--mask:layout_height="wrap_content"-->
-                <!--mask:layout_width="match_parent"-->
-                <!--mask:textSize="20sp" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
+            <EditText
+                android:id="@+id/et_endereco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Endereço"
+                android:inputType="textCapWords|textMultiLine"
+                android:textSize="20sp" />
+        </android.support.design.widget.TextInputLayout>
 
-        <!--<android.support.design.widget.TextInputLayout-->
-            <!--mask:layout_height="wrap_content"-->
-            <!--mask:layout_marginBottom="8dp"-->
-            <!--mask:layout_marginTop="8dp"-->
-            <!--mask:layout_width="match_parent"-->
-            <!--mask:textColorHint="@color/colorAccent">-->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:textColorHint="@color/colorAccent">
 
-            <!--<EditText-->
-                <!--mask:hint="Tels"-->
-                <!--mask:id="@+id/input_tels"-->
-                <!--mask:inputType="text|textCapCharacters|textCapWords|textCapSentences|textAutoCorrect|textAutoComplete|textMultiLine|textImeMultiLine|textNoSuggestions|textUri|textEmailAddress|textEmailSubject|textShortMessage|textLongMessage|textPersonName|textPostalAddress|textPassword|textVisiblePassword|textWebEditText|textFilter|textPhonetic|textWebEmailAddress|textWebPassword|number|numberSigned|numberDecimal|numberPassword|phone"-->
-                <!--mask:layout_height="wrap_content"-->
-                <!--mask:layout_width="match_parent"-->
-                <!--mask:textSize="20sp" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
+            <EditText
+                android:id="@+id/et_tels"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tels"
+                android:inputType="phone"
+                android:textSize="20sp" />
+        </android.support.design.widget.TextInputLayout>
 
-        <!--<android.support.design.widget.TextInputLayout-->
-            <!--mask:layout_height="wrap_content"-->
-            <!--mask:layout_marginBottom="8dp"-->
-            <!--mask:layout_marginTop="8dp"-->
-            <!--mask:layout_width="match_parent"-->
-            <!--mask:textColorHint="@color/colorAccent">-->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:textColorHint="@color/colorAccent">
 
-            <!--<EditText-->
-                <!--mask:hint="Aparelho"-->
-                <!--mask:id="@+id/input_aparelho"-->
-                <!--mask:inputType="text|textCapCharacters|textCapWords|textCapSentences|textAutoCorrect|textAutoComplete|textMultiLine|textImeMultiLine|textNoSuggestions|textUri|textEmailAddress|textEmailSubject|textShortMessage|textLongMessage|textPersonName|textPostalAddress|textPassword|textVisiblePassword|textWebEditText|textFilter|textPhonetic|textWebEmailAddress|textWebPassword|phone"-->
-                <!--mask:layout_height="wrap_content"-->
-                <!--mask:layout_width="match_parent"-->
-                <!--mask:textSize="20sp" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
+            <EditText
+                android:id="@+id/et_aparelho"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Aparelho"
+                android:inputType="textCapWords|textMultiLine"
+                android:textSize="20sp" />
+        </android.support.design.widget.TextInputLayout>
 
-        <!--<android.support.design.widget.TextInputLayout-->
-            <!--mask:layout_height="wrap_content"-->
-            <!--mask:layout_marginBottom="8dp"-->
-            <!--mask:layout_marginTop="8dp"-->
-            <!--mask:layout_width="match_parent"-->
-            <!--mask:textColorHint="@color/colorAccent">-->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:textColorHint="@color/colorAccent">
 
-            <!--<EditText-->
-                <!--mask:hint="Obs"-->
-                <!--mask:id="@+id/input_obs"-->
-                <!--mask:inputType="text|textCapCharacters|textCapWords|textCapSentences|textAutoCorrect|textAutoComplete|textMultiLine|textImeMultiLine|textNoSuggestions|textUri|textEmailAddress|textEmailSubject|textShortMessage|textLongMessage|textPersonName|textPostalAddress|textPassword|textVisiblePassword|textWebEditText|textFilter|textPhonetic|textWebEmailAddress|textWebPassword|phone"-->
-                <!--mask:layout_height="wrap_content"-->
-                <!--mask:layout_width="match_parent"-->
-                <!--mask:textSize="20sp" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
+            <EditText
+                android:id="@+id/et_defeito_reclamado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Defeito Reclamado"
+                android:inputType="textCapSentences|textMultiLine"
+                android:textSize="20sp" />
+        </android.support.design.widget.TextInputLayout>
 
-        <!--<android.support.design.widget.TextInputLayout-->
-            <!--mask:layout_height="wrap_content"-->
-            <!--mask:layout_marginBottom="8dp"-->
-            <!--mask:layout_marginTop="8dp"-->
-            <!--mask:layout_width="match_parent"-->
-            <!--mask:textColorHint="@color/colorAccent">-->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:textColorHint="@color/colorAccent">
 
-            <!--<br.com.sapereaude.maskedEditText.MaskedEditText-->
-                <!--mask:hint="Preco"-->
-                <!--mask:id="@+id/input_preco"-->
-                <!--mask:inputType="number|numberSigned|numberDecimal|numberPassword|phone"-->
-                <!--mask:layout_height="wrap_content"-->
-                <!--mask:layout_width="match_parent"-->
-                <!--mask:mask="R$ #####"-->
-                <!--mask:textSize="20sp" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
+            <EditText
+                android:id="@+id/et_defeito_constatado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Defeito Constatado"
+                android:inputType="textCapSentences|textMultiLine"
+                android:textSize="20sp" />
+        </android.support.design.widget.TextInputLayout>
 
-        <!--<android.support.design.widget.TextInputLayout-->
-            <!--mask:layout_height="wrap_content"-->
-            <!--mask:layout_marginBottom="8dp"-->
-            <!--mask:layout_marginTop="8dp"-->
-            <!--mask:layout_width="match_parent"-->
-            <!--mask:textColorHint="@color/colorAccent">-->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:textColorHint="@color/colorAccent">
 
-            <!--<br.com.sapereaude.maskedEditText.MaskedEditText-->
-                <!--mask:hint="Sinal"-->
-                <!--mask:id="@+id/input_sinal"-->
-                <!--mask:inputType="number|numberSigned|numberDecimal|numberPassword|phone"-->
-                <!--mask:layout_height="wrap_content"-->
-                <!--mask:layout_width="match_parent"-->
-                <!--mask:mask="R$ #####"-->
-                <!--mask:textSize="20sp" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
+            <EditText
+                android:id="@+id/et_obs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Obs"
+                android:inputType="textCapSentences|textMultiLine"
+                android:textSize="20sp" />
+        </android.support.design.widget.TextInputLayout>
 
-        <!--<TextView-->
-            <!--mask:id="@+id/text_a_pagar"-->
-            <!--mask:layout_height="wrap_content"-->
-            <!--mask:layout_marginBottom="8dp"-->
-            <!--mask:layout_marginTop="8dp"-->
-            <!--mask:layout_width="match_parent"-->
-            <!--mask:text="Á pagar"-->
-            <!--mask:textColor="0x106000c"-->
-            <!--mask:textSize="20sp" />-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
 
-        <!--<CheckBox-->
-            <!--mask:id="@+id/cb_pago"-->
-            <!--mask:layout_height="wrap_content"-->
-            <!--mask:layout_marginBottom="8dp"-->
-            <!--mask:layout_marginTop="8dp"-->
-            <!--mask:layout_width="match_parent"-->
-            <!--mask:text="Pago"-->
-            <!--mask:textColor="0x106000c"-->
-            <!--mask:textSize="20sp" />-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:paddingStart="3dp"
+                android:textSize="12sp"
+                android:text="Preço"/>
 
-        <!--<LinearLayout-->
-            <!--mask:layout_height="wrap_content"-->
-            <!--mask:layout_marginBottom="24dp"-->
-            <!--mask:layout_marginTop="24dp"-->
-            <!--mask:layout_width="match_parent"-->
-            <!--mask:orientation="horizontal">-->
+            <br.com.sapereaude.maskedEditText.MaskedEditText
+                android:id="@+id/et_preco"
+                android:inputType="number"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                mask:mask="R$ #####"
+                android:textSize="20sp" />
 
-            <!--<android.support.v7.widget.AppCompatButton-->
-                <!--mask:id="@+id/btn_salvar"-->
-                <!--mask:layout_height="wrap_content"-->
-                <!--mask:layout_weight="1.0"-->
-                <!--mask:layout_width="UNKNOWN_DATA_0x1"-->
-                <!--mask:padding="12dp"-->
-                <!--mask:text="Salvar"-->
-                <!--mask:textSize="20sp" />-->
+        </LinearLayout>
 
-            <!--<android.support.v7.widget.AppCompatButton-->
-                <!--mask:id="@+id/btn_gerar_pdf"-->
-                <!--mask:layout_height="wrap_content"-->
-                <!--mask:layout_weight="1.0"-->
-                <!--mask:layout_width="UNKNOWN_DATA_0x1"-->
-                <!--mask:padding="12dp"-->
-                <!--mask:text="Gerar PDF"-->
-                <!--mask:textSize="20sp" />-->
-        <!--</LinearLayout>-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="13dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:paddingStart="3dp"
+                android:textSize="12sp"
+                android:text="Sinal"/>
+
+            <br.com.sapereaude.maskedEditText.MaskedEditText
+                android:id="@+id/et_sinal"
+                android:inputType="number"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                mask:mask="R$ #####"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorAccent"
+                    android:paddingBottom="8dp"
+                    android:textSize="12sp"
+                    android:text="A Pagar"/>
+
+                <TextView
+                    android:id="@+id/tv_a_pagar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
+                    android:text="R$ 100,00"/>
+
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/cb_pago"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="Pago"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/bt_salvar"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/botao_customizado"
+                android:padding="12dp"
+                android:layout_marginRight="2dp"
+                android:text="Salvar"
+                android:textSize="20sp" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/bt_gerar_pdf"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/botao_customizado"
+                android:padding="12dp"
+                android:layout_marginLeft="2dp"
+                android:text="Gerar PDF"
+                android:textSize="20sp" />
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>
