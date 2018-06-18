@@ -14,9 +14,22 @@ class MainActivity : AppCompatActivity() {
 
         bt_criar_os.setOnClickListener {startActivity<NovaOsActivity>()}
 
-        val list = arrayOf("afinador", "baixo", "cavaco", "distorcão", "escalopado", "flauta", "guitarra", "holoforte", "iGuitar", "jojoba", "ll200", "mano a mano")
-
         rv_lista_os.layoutManager = LinearLayoutManager(this)
-        rv_lista_os.adapter = ListaOsAdapter(list, this)
+        rv_lista_os.adapter = ListaOsAdapter(this)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (rv_lista_os.adapter as ListaOsAdapter).refresh()
+        rv_lista_os.adapter.notifyDataSetChanged()
+    }
+
+    public override fun onDestroy() {
+        super.onDestroy()
+        rv_lista_os.adapter = null
+    }
+
+    fun deleteLine(position: Int) {
+        rv_lista_os.adapter.notifyItemRemoved(position)
     }
 }
