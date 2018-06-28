@@ -30,4 +30,5 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support:design:27.1.1'
     implementation 'ru.egslava:MaskedEditText:1.0.5'
+    implementation 'com.itextpdf:itextpdf:5.5.13'
 }
