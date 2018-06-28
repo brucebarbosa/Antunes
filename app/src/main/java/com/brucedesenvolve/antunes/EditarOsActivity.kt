@@ -1,6 +1,7 @@
 package com.brucedesenvolve.antunes
 
 import android.Manifest
+import android.app.Dialog
 import android.content.ContentValues
 import android.content.pm.PackageManager
 import android.support.v7.app.AppCompatActivity
@@ -29,6 +30,7 @@ import com.itextpdf.text.*
 import org.jetbrains.anko.indeterminateProgressDialog
 import java.io.ByteArrayOutputStream
 import com.itextpdf.text.BaseColor
+import android.view.WindowManager
 
 
 
@@ -45,8 +47,10 @@ class EditarOsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_editar_os)
 
+        /*Pega o número da OS que será editada e a atribui a uma variavel global*/
         id = intent.getLongExtra("id", 0)
 
+        /*Esses dois métdodos verificam constantemente a mudança dos valores de preço e sinal para calcular o valor a pagar*/
         et_preco.addTextChangedListener(object : TextWatcher{
             override fun afterTextChanged(s: Editable?) {
                 var preco = et_preco.text.toString().replace("R$ ", "")
@@ -63,7 +67,6 @@ class EditarOsActivity : AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
-
         et_sinal.addTextChangedListener(object : TextWatcher{
             override fun afterTextChanged(s: Editable?) {
                 var preco = et_preco.text.toString().replace("R$ ", "")
@@ -82,24 +85,28 @@ class EditarOsActivity : AppCompatActivity() {
 
         })
 
-        preencher(id)
+        preencher()
 
-        bt_salvar.setOnClickListener { salvar() }
-
-        bt_gerar_pdf.setOnClickListener {
-            val mProgressDialog = indeterminateProgressDialog("Aguarde enquanto sua OS é criada", "Gerando PDF")
+        bt_salvar.setOnClickListener {
+            val mProgressDialog = indeterminateProgressDialog( "Salvando...")
             mProgressDialog.show()
+            manterDialog(mProgressDialog)
             Handler().postDelayed({
                 salvar()
-                gerarPdf()
+                finish()
                 mProgressDialog.dismiss()
-            }, 2000)
+            }, 1000)
         }
+
+        bt_gerar_pdf.setOnClickListener { gerarPdf() }
     }
 
-    private fun preencher(id: Long) {
+    /**
+     * Função responsável por preencher o formulário com os dados guardados no banco de dados.
+     */
+    private fun preencher() {
         database.use {
-            select(OsTable.TABLE_NAME).whereArgs("${OsTable._ID} = $id").exec {
+            select(OsTable.TABLE_NAME).whereArgs("${OsTable.ID} = $id").exec {
                 if (moveToNext()) {
                     var col = 1
                     tv_data_entrada.text = getString(col++)
@@ -117,13 +124,16 @@ class EditarOsActivity : AppCompatActivity() {
                     et_sinal.setText(getString(col++))
                     cb_pago.isChecked = getInt(col) != 0
                 } else {
-                    toast("Ocorreu um erro")
+                    toast("Desculpe, ocorreu um erro")
                     finish()
                 }
             }
         }
     }
 
+    /**
+     * Função responsável por pegar os dados do formulário e atualiza-los no banco de dados.
+     */
     private fun salvar() {
         val orcamentoPronto = et_data_orcamento_pronto.text.toString().replace("/", "")
         val orcamentoAprovado = et_data_orcamento_aprovado.text.toString().replace("/", "")
@@ -156,28 +166,52 @@ class EditarOsActivity : AppCompatActivity() {
         }
 
         database.use {
-            update(OsTable.TABLE_NAME, contentValues, "${OsTable._ID} = $id", null)
+            update(OsTable.TABLE_NAME, contentValues, "${OsTable.ID} = $id", null)
         }
-        finish()
     }
 
+    /**
+     * Esta função checa se existe permissão para usar o armazenamento externo.
+     * Se houver, a função criarPdf() será executada, do contrario será executado a função que pede permissões ao usuário.
+     */
     private fun gerarPdf() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), REQUEST_PERMISSION)
         } else {
-            criarPdf()
+            val mProgressDialog = indeterminateProgressDialog("Aguarde enquanto sua OS é criada", "Gerando PDF")
+            mProgressDialog.show()
+            manterDialog(mProgressDialog)
+            Handler().postDelayed({
+                criarPdf()
+                mProgressDialog.dismiss()
+            }, 2000)
         }
     }
 
+    /**
+     * Esta função pede permissões ao usuário. Neste app apenas a permissão para o uso do armazenamento externo é necessária.
+     */
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         when (requestCode) {
             REQUEST_PERMISSION -> if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                criarPdf()
+                val mProgressDialog = indeterminateProgressDialog("Aguarde enquanto sua OS é criada", "Gerando PDF")
+                mProgressDialog.show()
+                manterDialog(mProgressDialog)
+                Handler().postDelayed({
+                    criarPdf()
+                    mProgressDialog.dismiss()
+                }, 2000)
             }
         }
     }
 
+    /**
+     * Esta é a função que pega os dados do formulário e os organiza em um documento pdf.
+     */
     private fun criarPdf() {
+
+        salvar()
+
         val entrada = tv_data_entrada.text
         val orcamentoPronto = et_data_orcamento_pronto.text
         val orcamentoAprovado = et_data_orcamento_aprovado.text
@@ -193,9 +227,11 @@ class EditarOsActivity : AppCompatActivity() {
         val sinal = et_sinal.text
         val aPagar = tv_a_pagar.text
 
+        /*Este código verifica se temos a pasta para salvar as OS. se não tivermos ela será criada*/
         val docsFolder = File(getExternalStorageDirectory(), "/Antunes OS")
         if (!docsFolder.exists()) docsFolder.mkdir()
 
+        /*Aqui é criado o documento*/
         val pdfFile = File(docsFolder.absolutePath, "(OS $id) $nome.pdf")
         val output = FileOutputStream(pdfFile)
         val document = Document()
@@ -203,6 +239,7 @@ class EditarOsActivity : AppCompatActivity() {
         document.open()
         document.setMargins(20F, 20F, 20F, 20F)
 
+        /*Daqui em diante teremos todos os elementos em ordem que farão parte do documento*/
         val logo = BitmapFactory.decodeStream(assets.open("logo.jpg"))
         val streamLogo = ByteArrayOutputStream()
         logo.compress(CompressFormat.PNG, 100, streamLogo)
@@ -212,7 +249,15 @@ class EditarOsActivity : AppCompatActivity() {
         logoTable.addCell(PdfPCell(imgLogo, true))
         document.add(logoTable)
 
-        val fonte = Font(Font.FontFamily.HELVETICA, 17F, 1)
+        val fonte = Font(Font.FontFamily.HELVETICA, 17F, Font.BOLD)
+
+        val osTable = PdfPTable(1)
+        osTable.widthPercentage = 100F
+        val osCell = PdfPCell(Phrase("OS: $id", fonte))
+        osCell.setPadding(5F)
+        osCell.horizontalAlignment = Element.ALIGN_CENTER
+        osTable.addCell(osCell)
+        document.add(osTable)
 
         val datasTable1 = PdfPTable(2)
         datasTable1.widthPercentage = 100F
@@ -295,7 +340,7 @@ class EditarOsActivity : AppCompatActivity() {
         valoresTable.addCell(precoCell)
         valoresTable.addCell(sinalCell)
         if (cb_pago.isChecked) {
-            val fontePago = Font(Font.FontFamily.HELVETICA, 19F, 1, BaseColor.RED)
+            val fontePago = Font(Font.FontFamily.HELVETICA, 19F, Font.BOLD, BaseColor.RED)
             val pagoCell = PdfPCell(Phrase("Pago $preco,00", fontePago))
             pagoCell.setPadding(5F)
             valoresTable.addCell(pagoCell)
@@ -315,10 +360,16 @@ class EditarOsActivity : AppCompatActivity() {
         pdfRodape.addCell(PdfPCell(imgRodape, true))
         document.add(pdfRodape)
 
+        /*Então finalizamos a montagem do documento e abrimos ele para visualização*/
         document.close()
         abrirPdf(pdfFile)
     }
 
+    /**
+     * Esta função confere se o usuário tem um app que visualiza pdf.
+     * Se ele tiver, o documento será aberto neste app.
+     * Mas se ele não tiver, uma menssagem pedirá para ele baixar um app.
+     */
     private fun abrirPdf(pdfFile: File) {
         val testIntent = Intent(Intent.ACTION_VIEW)
         testIntent.type = "application/pdf"
@@ -329,5 +380,16 @@ class EditarOsActivity : AppCompatActivity() {
             return
         }
         toast("Baixe um aplicativo para ler pdf")
+    }
+
+    /**
+     * Função para quando girar a tela, o ProgressDialog seja mantido.
+     */
+    private fun manterDialog(dialog: Dialog) {
+        val lp = WindowManager.LayoutParams()
+        lp.copyFrom(dialog.window.attributes)
+        lp.width = WindowManager.LayoutParams.WRAP_CONTENT
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT
+        dialog.window.attributes = lp
     }
 }

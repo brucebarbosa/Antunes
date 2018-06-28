@@ -5,6 +5,9 @@ import com.brucedesenvolve.antunes.data.OsContract.OsTable
 import android.database.sqlite.SQLiteDatabase
 import org.jetbrains.anko.db.*
 
+/**
+ * Este é o banco de dados do app. Está simplificado graças a biblioteca ANKO.
+ */
 class MyDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "MyDatabase", null, 1) {
     companion object {
         private var instance: MyDatabaseOpenHelper? = null
@@ -18,10 +21,13 @@ class MyDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "MyDatab
         }
     }
 
+    /**
+     * Esta é a única função que é preciso implementar.
+     * Aqui criamos a tabela que oraganiza o banco de dados em colunas.
+     */
     override fun onCreate(db: SQLiteDatabase) {
-        // Here you create tables
         db.createTable(OsTable.TABLE_NAME, true,
-                OsTable._ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT + UNIQUE + NOT_NULL,
+                OsTable.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT + UNIQUE + NOT_NULL,
                 OsTable.ENTRADA to TEXT,
                 OsTable.ORCAMENTO_PRONTO to TEXT,
                 OsTable.ORCAMENTO_APROVADO to TEXT,
@@ -39,11 +45,9 @@ class MyDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "MyDatab
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        // Here you can upgrade tables, as usual
         db.dropTable(OsTable.TABLE_NAME, true)
     }
 }
-
-// Access property for Context
+/*Esta é a variável que é usada para acessar o banco de dados em qualquer atividade*/
 val Context.database: MyDatabaseOpenHelper
     get() = MyDatabaseOpenHelper.getInstance(applicationContext)

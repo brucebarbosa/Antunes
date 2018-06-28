@@ -41,6 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="6dp"
+                android:paddingEnd="6dp"
                 android:maxLines="1"/>
 
         </LinearLayout>
@@ -50,10 +51,11 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:paddingEnd="6dp"
-            app:srcCompat="@drawable/baseline_delete_24"
+            android:layout_marginEnd="6dp"
+            app:srcCompat="@drawable/botao_apagar"
             android:clickable="true"
-            android:focusable="true"/>
+            android:focusable="true"
+            android:contentDescription="@string/apagar_os"/>
 
     </LinearLayout>
 

@@ -23,7 +23,7 @@
                 android:textColor="@color/colorAccent"
                 android:paddingBottom="8dp"
                 android:textSize="12sp"
-                android:text="Data Entrada"/>
+                android:text="@string/data_entrada"/>
 
             <TextView
                 android:id="@+id/tv_data_entrada"
@@ -46,8 +46,9 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorAccent"
                 android:paddingStart="3dp"
+                android:paddingEnd="3dp"
                 android:textSize="12sp"
-                android:text="Data Orçamento Pronto"/>
+                android:text="@string/data_orcamento_pronto"/>
 
             <br.com.sapereaude.maskedEditText.MaskedEditText
                 android:id="@+id/et_data_orcamento_pronto"
@@ -70,8 +71,9 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorAccent"
                 android:paddingStart="3dp"
+                android:paddingEnd="3dp"
                 android:textSize="12sp"
-                android:text="Data Orçamento Aprovado"/>
+                android:text="@string/data_orcamento_aprovado"/>
 
             <br.com.sapereaude.maskedEditText.MaskedEditText
                 android:id="@+id/et_data_orcamento_aprovado"
@@ -94,8 +96,9 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorAccent"
                 android:paddingStart="3dp"
+                android:paddingEnd="3dp"
                 android:textSize="12sp"
-                android:text="Data Serviço Pronto"/>
+                android:text="@string/data_servico_pronto"/>
 
             <br.com.sapereaude.maskedEditText.MaskedEditText
                 android:id="@+id/et_data_servico_pronto"
@@ -117,7 +120,7 @@
                 android:id="@+id/et_nome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nome"
+                android:hint="@string/nome"
                 android:inputType="textCapWords|textMultiLine"
                 android:textSize="20sp" />
         </android.support.design.widget.TextInputLayout>
@@ -132,7 +135,7 @@
                 android:id="@+id/et_endereco"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Endereço"
+                android:hint="@string/endereco"
                 android:inputType="textCapWords|textMultiLine"
                 android:textSize="20sp" />
         </android.support.design.widget.TextInputLayout>
@@ -147,7 +150,7 @@
                 android:id="@+id/et_tels"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Tels"
+                android:hint="@string/tels"
                 android:inputType="phone"
                 android:textSize="20sp" />
         </android.support.design.widget.TextInputLayout>
@@ -162,7 +165,7 @@
                 android:id="@+id/et_aparelho"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Aparelho"
+                android:hint="@string/aparelho"
                 android:inputType="textCapWords|textMultiLine"
                 android:textSize="20sp" />
         </android.support.design.widget.TextInputLayout>
@@ -177,7 +180,7 @@
                 android:id="@+id/et_defeito_reclamado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Defeito Reclamado"
+                android:hint="@string/defeito_reclamado"
                 android:inputType="textCapSentences|textMultiLine"
                 android:textSize="20sp" />
         </android.support.design.widget.TextInputLayout>
@@ -192,7 +195,7 @@
                 android:id="@+id/et_defeito_constatado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Defeito Constatado"
+                android:hint="@string/defeito_constatado"
                 android:inputType="textCapSentences|textMultiLine"
                 android:textSize="20sp" />
         </android.support.design.widget.TextInputLayout>
@@ -207,7 +210,7 @@
                 android:id="@+id/et_obs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Obs"
+                android:hint="@string/obs"
                 android:inputType="textCapSentences|textMultiLine"
                 android:textSize="20sp" />
         </android.support.design.widget.TextInputLayout>
@@ -223,8 +226,9 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorAccent"
                 android:paddingStart="3dp"
+                android:paddingEnd="3dp"
                 android:textSize="12sp"
-                android:text="Preço"/>
+                android:text="@string/preco"/>
 
             <br.com.sapereaude.maskedEditText.MaskedEditText
                 android:id="@+id/et_preco"
@@ -247,8 +251,9 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorAccent"
                 android:paddingStart="3dp"
+                android:paddingEnd="3dp"
                 android:textSize="12sp"
-                android:text="Sinal"/>
+                android:text="@string/sinal"/>
 
             <br.com.sapereaude.maskedEditText.MaskedEditText
                 android:id="@+id/et_sinal"
@@ -278,15 +283,14 @@
                     android:textColor="@color/colorAccent"
                     android:paddingBottom="8dp"
                     android:textSize="12sp"
-                    android:text="A Pagar"/>
+                    android:text="@string/a_pagar"/>
 
                 <TextView
                     android:id="@+id/tv_a_pagar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="20sp"
-                    android:text="R$"/>
+                    android:textSize="20sp"/>
 
             </LinearLayout>
 
@@ -295,7 +299,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:text="Pago"
+                android:text="@string/pago"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="20sp" />
 
@@ -312,8 +316,8 @@
                 android:layout_weight="1"
                 android:background="@drawable/botao_customizado"
                 android:padding="12dp"
-                android:layout_marginRight="2dp"
-                android:text="Salvar"
+                android:layout_marginEnd="2dp"
+                android:text="@string/salvar"
                 android:textSize="20sp" />
 
             <android.support.v7.widget.AppCompatButton
@@ -323,8 +327,8 @@
                 android:layout_weight="1"
                 android:background="@drawable/botao_customizado"
                 android:padding="12dp"
-                android:layout_marginLeft="2dp"
-                android:text="Gerar PDF"
+                android:layout_marginStart="2dp"
+                android:text="@string/gerar_pdf"
                 android:textSize="20sp" />
         </LinearLayout>
     </LinearLayout>

@@ -1,5 +1,26 @@
 <resources>
+    <!-- Nome do aplicativo -->
     <string name="app_name">Antunes OS</string>
-
+    <!-- Todos botões -->
+    <string name="apagar_os">Apagar OS</string>
+    <string name="criar_os">Criar OS</string>
+    <string name="salvar">Salvar</string>
+    <string name="gerar_pdf">Gerar PDF</string>
+    <!-- Todos campos -->
+    <string name="data_entrada">Data Entrada</string>
+    <string name="data_orcamento_pronto">Data Orçamento Pronto</string>
+    <string name="data_orcamento_aprovado">Data Orçamento Aprovado</string>
+    <string name="data_servico_pronto">Data Serviço Pronto</string>
     <string name="nova_os">Nova OS</string>
+    <string name="nome">Nome</string>
+    <string name="endereco">Endereço</string>
+    <string name="tels">Tels</string>
+    <string name="aparelho">Aparelho</string>
+    <string name="defeito_reclamado">Defeito Reclamado</string>
+    <string name="defeito_constatado">Defeito Constatado</string>
+    <string name="obs">Obs</string>
+    <string name="preco">Preço</string>
+    <string name="sinal">Sinal</string>
+    <string name="a_pagar">A pagar</string>
+    <string name="pago">Pago</string>
 </resources>

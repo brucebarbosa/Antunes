@@ -12,12 +12,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        /*Abre a tela para criar uma nova OS*/
         bt_criar_os.setOnClickListener {startActivity<NovaOsActivity>()}
 
         rv_lista_os.layoutManager = LinearLayoutManager(this)
         rv_lista_os.adapter = ListaOsAdapter(this)
     }
 
+    /**
+     * Sempre que voltar de uma outra atividade, a lista será atializada.
+     */
     override fun onResume() {
         super.onResume()
         (rv_lista_os.adapter as ListaOsAdapter).refresh()
@@ -29,6 +33,9 @@ class MainActivity : AppCompatActivity() {
         rv_lista_os.adapter = null
     }
 
+    /**
+     * Esta função possibilita a atualização visual quando um item da lista é removido.
+     */
     fun deleteLine(position: Int) {
         rv_lista_os.adapter.notifyItemRemoved(position)
     }

@@ -16,10 +16,12 @@ class NovaOsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nova_os)
 
+        /*De forma simples, essa função pega os dados do formulario e cria uma nova entrada no banco de dados*/
         bt_salvar_os.setOnClickListener {
-            val entrada = SimpleDateFormat("dd/MM/yy").format(Date())
+            /*Este código pega a data atual formatada*/
+            val entrada = SimpleDateFormat("dd/MM/yy", Locale.getDefault()).format(Date())
             val nome = et_nome.text.toString()
-            if (nome.equals("")) {
+            if (nome == "") {
                 toast("Digite o nome do cliente")
                 return@setOnClickListener
             }
@@ -35,7 +37,9 @@ class NovaOsActivity : AppCompatActivity() {
                         OsTable.ENDERECO to endereco,
                         OsTable.TELS to tels,
                         OsTable.APARELHO to aparelho,
-                        OsTable.DEFEITO_RECLAMADO to defeitoReclamado)
+                        OsTable.DEFEITO_RECLAMADO to defeitoReclamado,
+                        OsTable.PRECO to "0",
+                        OsTable.SINAL to "0")
             }
             finish()
         }

@@ -20,7 +20,7 @@
                 android:id="@+id/et_nome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nome"
+                android:hint="@string/nome"
                 android:inputType="textCapWords|textMultiLine"
                 android:textSize="20sp" />
         </android.support.design.widget.TextInputLayout>
@@ -35,7 +35,7 @@
                 android:id="@+id/et_endereco"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Endereço"
+                android:hint="@string/endereco"
                 android:inputType="textCapWords|textMultiLine"
                 android:textSize="20sp" />
         </android.support.design.widget.TextInputLayout>
@@ -50,7 +50,7 @@
                 android:id="@+id/et_tels"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Tels"
+                android:hint="@string/tels"
                 android:inputType="phone"
                 android:textSize="20sp" />
         </android.support.design.widget.TextInputLayout>
@@ -65,7 +65,7 @@
                 android:id="@+id/et_aparelho"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Aparelho"
+                android:hint="@string/aparelho"
                 android:inputType="textCapWords|textMultiLine"
                 android:textSize="20sp" />
         </android.support.design.widget.TextInputLayout>
@@ -80,7 +80,7 @@
                 android:id="@+id/et_defeito_reclamado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Defeito Reclamado"
+                android:hint="@string/defeito_reclamado"
                 android:inputType="textCapSentences|textMultiLine"
                 android:textSize="20sp" />
         </android.support.design.widget.TextInputLayout>
@@ -93,6 +93,6 @@
             android:background="@drawable/botao_customizado"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:text="Salvar OS"/>
+            android:text="@string/criar_os"/>
     </LinearLayout>
 </ScrollView>
