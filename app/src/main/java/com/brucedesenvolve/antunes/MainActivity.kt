@@ -38,5 +38,7 @@ class MainActivity : AppCompatActivity() {
      */
     fun deleteLine(position: Int) {
         rv_lista_os.adapter.notifyItemRemoved(position)
+        (rv_lista_os.adapter as ListaOsAdapter).refresh()
+        rv_lista_os.adapter.notifyDataSetChanged()
     }
 }

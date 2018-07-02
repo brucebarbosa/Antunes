@@ -15,6 +15,7 @@ object OsContract {
         const val ENDERECO = "endereco"
         const val TELS = "tels"
         const val APARELHO = "aparelho"
+        const val DESCRICAO = "descricao"
         const val DEFEITO_RECLAMADO = "defeito_reclamado"
         const val DEFEITO_CONSTATADO = "defeito_constatado"
         const val OBS = "obs"

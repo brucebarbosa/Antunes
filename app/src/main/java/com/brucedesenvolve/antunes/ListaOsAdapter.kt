@@ -49,7 +49,6 @@ class ListaOsAdapter(private val context: Context) : RecyclerView.Adapter<ListaO
                     context.database.use {
                         delete(OsTable.TABLE_NAME, "${OsTable.ID} = ${os.numeroOs}", null)
                     }
-                    refresh()
                     (context as MainActivity).deleteLine(position)
                 }
                 negativeButton("Cancelar") {}
@@ -86,7 +85,7 @@ class ListaOsAdapter(private val context: Context) : RecyclerView.Adapter<ListaO
                     while (moveToNext()) {
                         val itemOs = ItemOs(getLong(getColumnIndex(OsTable.ID)),
                                 getString(getColumnIndex(OsTable.NOME)),
-                                getString(getColumnIndex(OsTable.APARELHO)))
+                                getString(getColumnIndex(OsTable.DESCRICAO)))
                         itemsOs.add(itemOs)
                     }
                 }

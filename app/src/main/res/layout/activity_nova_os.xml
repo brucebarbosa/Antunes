@@ -55,6 +55,84 @@
                 android:textSize="20sp" />
         </android.support.design.widget.TextInputLayout>
 
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:paddingBottom="8dp"
+                android:textSize="12sp"
+                android:text="@string/aparelho"/>
+
+            <RadioButton
+                android:id="@+id/rb_instrumento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="@string/instrumento"/>
+
+            <RadioButton
+                android:id="@+id/rb_teclado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="@string/teclado"/>
+
+            <RadioButton
+                android:id="@+id/rb_microfone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="@string/microfone"/>
+
+            <RadioButton
+                android:id="@+id/rb_pedal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="@string/pedal"/>
+
+            <RadioButton
+                android:id="@+id/rb_pedaleira"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="@string/pedaleira"/>
+
+            <RadioButton
+                android:id="@+id/rb_mesa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="@string/mesa"/>
+
+            <RadioButton
+                android:id="@+id/rb_power"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="@string/power"/>
+
+            <RadioButton
+                android:id="@+id/rb_caixa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="@string/caixa"/>
+
+            <RadioButton
+                android:id="@+id/rb_outros"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="@string/outros"/>
+        </RadioGroup>
+
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -62,12 +140,12 @@
             android:textColorHint="@color/colorAccent">
 
             <EditText
-                android:id="@+id/et_aparelho"
+                android:id="@+id/et_descricao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/aparelho"
+                android:hint="@string/descricao"
                 android:inputType="textCapWords|textMultiLine"
-                android:textSize="20sp" />
+                android:textSize="20sp"/>
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout

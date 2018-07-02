@@ -116,7 +116,8 @@ class EditarOsActivity : AppCompatActivity() {
                     et_nome.setText(getString(col++))
                     et_endereco.setText(getString(col++))
                     et_tels.setText(getString(col++))
-                    et_aparelho.setText(getString(col++))
+                    tv_aparelho.text = getString(col++)
+                    et_descricao.setText(getString(col++))
                     et_defeito_reclamado.setText(getString(col++))
                     et_defeito_constatado.setText(getString(col++))
                     et_obs.setText(getString(col++))
@@ -141,7 +142,7 @@ class EditarOsActivity : AppCompatActivity() {
         val nome = et_nome.text.toString()
         val endereco = et_endereco.text.toString()
         val tels = et_tels.text.toString()
-        val aparelho = et_aparelho.text.toString()
+        val descricao = et_descricao.text.toString()
         val defeitoReclamado = et_defeito_reclamado.text.toString()
         val defeitoConstatado = et_defeito_constatado.text.toString()
         val obs = et_obs.text.toString()
@@ -156,7 +157,7 @@ class EditarOsActivity : AppCompatActivity() {
             put(OsTable.NOME, nome)
             put(OsTable.ENDERECO, endereco)
             put(OsTable.TELS, tels)
-            put(OsTable.APARELHO, aparelho)
+            put(OsTable.DESCRICAO, descricao)
             put(OsTable.DEFEITO_RECLAMADO, defeitoReclamado)
             put(OsTable.DEFEITO_CONSTATADO, defeitoConstatado)
             put(OsTable.OBS, obs)
@@ -219,7 +220,8 @@ class EditarOsActivity : AppCompatActivity() {
         val nome = et_nome.text
         val endereco = et_endereco.text
         val tels = et_tels.text
-        val aparelho = et_aparelho.text
+        val aparelho = tv_aparelho.text
+        val descricao = et_descricao.text
         val defeitoReclamado = et_defeito_reclamado.text
         val defeitoConstatado = et_defeito_constatado.text
         val obs = et_obs.text
@@ -301,7 +303,7 @@ class EditarOsActivity : AppCompatActivity() {
 
         val aparelhoTable = PdfPTable(1)
         aparelhoTable.widthPercentage = 100F
-        val aparelhoCell = PdfPCell(Phrase("Aparelho: $aparelho", fonte))
+        val aparelhoCell = PdfPCell(Phrase("$aparelho: $descricao", fonte))
         aparelhoCell.setPadding(5F)
         aparelhoCell.minimumHeight = 50F
         aparelhoTable.addCell(aparelhoCell)

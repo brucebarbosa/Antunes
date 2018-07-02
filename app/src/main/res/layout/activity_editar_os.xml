@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:mask="http://schemas.android.com/apk/res-auto"
-    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:fitsSystemWindows="true">
 
     <LinearLayout
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="24dp">
 
@@ -20,19 +20,18 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorAccent"
                 android:paddingBottom="8dp"
-                android:textSize="12sp"
-                android:text="@string/data_entrada"/>
+                android:text="@string/data_entrada"
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/tv_data_entrada"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryDark"
                 android:paddingBottom="13dp"
-                android:textSize="20sp"/>
-
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -44,20 +43,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorAccent"
-                android:paddingStart="3dp"
                 android:paddingEnd="3dp"
-                android:textSize="12sp"
-                android:text="@string/data_orcamento_pronto"/>
+                android:paddingStart="3dp"
+                android:text="@string/data_orcamento_pronto"
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp" />
 
             <br.com.sapereaude.maskedEditText.MaskedEditText
                 android:id="@+id/et_data_orcamento_pronto"
-                android:inputType="number"
-                android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                mask:mask="##/##/##"
-                android:textSize="20sp" />
-
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:textSize="20sp"
+                mask:mask="##/##/##" />
         </LinearLayout>
 
         <LinearLayout
@@ -69,20 +67,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorAccent"
-                android:paddingStart="3dp"
                 android:paddingEnd="3dp"
-                android:textSize="12sp"
-                android:text="@string/data_orcamento_aprovado"/>
+                android:paddingStart="3dp"
+                android:text="@string/data_orcamento_aprovado"
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp" />
 
             <br.com.sapereaude.maskedEditText.MaskedEditText
                 android:id="@+id/et_data_orcamento_aprovado"
-                android:inputType="number"
-                android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                mask:mask="##/##/##"
-                android:textSize="20sp" />
-
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:textSize="20sp"
+                mask:mask="##/##/##" />
         </LinearLayout>
 
         <LinearLayout
@@ -94,20 +91,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorAccent"
-                android:paddingStart="3dp"
                 android:paddingEnd="3dp"
-                android:textSize="12sp"
-                android:text="@string/data_servico_pronto"/>
+                android:paddingStart="3dp"
+                android:text="@string/data_servico_pronto"
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp" />
 
             <br.com.sapereaude.maskedEditText.MaskedEditText
                 android:id="@+id/et_data_servico_pronto"
-                android:inputType="number"
-                android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                mask:mask="##/##/##"
-                android:textSize="20sp" />
-
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:textSize="20sp"
+                mask:mask="##/##/##" />
         </LinearLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -155,20 +151,29 @@
                 android:textSize="20sp" />
         </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:textColorHint="@color/colorAccent">
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
+
+            <TextView
+                android:id="@+id/tv_aparelho"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="4dp"
+                android:paddingStart="4dp"
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp" />
 
             <EditText
-                android:id="@+id/et_aparelho"
+                android:id="@+id/et_descricao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/aparelho"
+                android:hint="@string/descricao"
                 android:inputType="textCapWords|textMultiLine"
                 android:textSize="20sp" />
-        </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -224,20 +229,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorAccent"
-                android:paddingStart="3dp"
                 android:paddingEnd="3dp"
-                android:textSize="12sp"
-                android:text="@string/preco"/>
+                android:paddingStart="3dp"
+                android:text="@string/preco"
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp" />
 
             <br.com.sapereaude.maskedEditText.MaskedEditText
                 android:id="@+id/et_preco"
-                android:inputType="number"
-                android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                mask:mask="R$ #####"
-                android:textSize="20sp" />
-
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:textSize="20sp"
+                mask:mask="R$ #####" />
         </LinearLayout>
 
         <LinearLayout
@@ -249,20 +253,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorAccent"
-                android:paddingStart="3dp"
                 android:paddingEnd="3dp"
-                android:textSize="12sp"
-                android:text="@string/sinal"/>
+                android:paddingStart="3dp"
+                android:text="@string/sinal"
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp" />
 
             <br.com.sapereaude.maskedEditText.MaskedEditText
                 android:id="@+id/et_sinal"
-                android:inputType="number"
-                android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                mask:mask="R$ #####"
-                android:textSize="20sp" />
-
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:textSize="20sp"
+                mask:mask="R$ #####" />
         </LinearLayout>
 
         <LinearLayout
@@ -280,54 +283,52 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorAccent"
                     android:paddingBottom="8dp"
-                    android:textSize="12sp"
-                    android:text="@string/a_pagar"/>
+                    android:text="@string/a_pagar"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/tv_a_pagar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="20sp"/>
-
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <CheckBox
                 android:id="@+id/cb_pago"
-                android:layout_height="wrap_content"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/pago"
-                android:textColor="@color/colorPrimaryDark"
                 android:textSize="20sp" />
-
         </LinearLayout>
+
         <LinearLayout
-            android:layout_height="wrap_content"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <android.support.v7.widget.AppCompatButton
                 android:id="@+id/bt_salvar"
-                android:layout_height="wrap_content"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="2dp"
                 android:layout_weight="1"
                 android:background="@drawable/botao_customizado"
                 android:padding="12dp"
-                android:layout_marginEnd="2dp"
                 android:text="@string/salvar"
                 android:textSize="20sp" />
 
             <android.support.v7.widget.AppCompatButton
                 android:id="@+id/bt_gerar_pdf"
-                android:layout_height="wrap_content"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
                 android:layout_weight="1"
                 android:background="@drawable/botao_customizado"
                 android:padding="12dp"
-                android:layout_marginStart="2dp"
                 android:text="@string/gerar_pdf"
                 android:textSize="20sp" />
         </LinearLayout>

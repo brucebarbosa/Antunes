@@ -27,7 +27,18 @@ class NovaOsActivity : AppCompatActivity() {
             }
             val endereco = et_endereco.text.toString()
             val tels = et_tels.text.toString()
-            val aparelho = et_aparelho.text.toString()
+            val aparelho = when (radio_group.checkedRadioButtonId) {
+                rb_instrumento.id -> "Instrumento"
+                rb_teclado.id -> "Teclado"
+                rb_microfone.id -> "Microfone"
+                rb_pedal.id -> "Pedal"
+                rb_pedaleira.id -> "Pedaleira"
+                rb_mesa.id -> "Mesa"
+                rb_power.id -> "Power"
+                rb_caixa.id -> "Caixa"
+                else -> "Aparelho"
+            }
+            val descricao = et_descricao.text.toString()
             val defeitoReclamado = et_defeito_reclamado.text.toString()
 
             database.use {
@@ -37,6 +48,7 @@ class NovaOsActivity : AppCompatActivity() {
                         OsTable.ENDERECO to endereco,
                         OsTable.TELS to tels,
                         OsTable.APARELHO to aparelho,
+                        OsTable.DESCRICAO to descricao,
                         OsTable.DEFEITO_RECLAMADO to defeitoReclamado,
                         OsTable.PRECO to "0",
                         OsTable.SINAL to "0")

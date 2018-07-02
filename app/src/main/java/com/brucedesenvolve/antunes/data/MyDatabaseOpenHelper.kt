@@ -36,6 +36,7 @@ class MyDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "MyDatab
                 OsTable.ENDERECO to TEXT,
                 OsTable.TELS to TEXT,
                 OsTable.APARELHO to TEXT,
+                OsTable.DESCRICAO to TEXT,
                 OsTable.DEFEITO_RECLAMADO to TEXT,
                 OsTable.DEFEITO_CONSTATADO to TEXT,
                 OsTable.OBS to TEXT,

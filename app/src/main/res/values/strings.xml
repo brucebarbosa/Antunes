@@ -15,7 +15,7 @@
     <string name="nome">Nome</string>
     <string name="endereco">Endereço</string>
     <string name="tels">Tels</string>
-    <string name="aparelho">Aparelho</string>
+    <string name="descricao">Descrição</string>
     <string name="defeito_reclamado">Defeito Reclamado</string>
     <string name="defeito_constatado">Defeito Constatado</string>
     <string name="obs">Obs</string>
@@ -23,4 +23,15 @@
     <string name="sinal">Sinal</string>
     <string name="a_pagar">A pagar</string>
     <string name="pago">Pago</string>
+    <!-- Opções de aparelhos -->
+    <string name="aparelho">Aparelho</string>
+    <string name="instrumento">Instrumento</string>
+    <string name="teclado">Teclado</string>
+    <string name="microfone">Microfone</string>
+    <string name="pedal">Pedal</string>
+    <string name="pedaleira">Pedaleira</string>
+    <string name="mesa">Mesa</string>
+    <string name="power">Power</string>
+    <string name="caixa">Caixa</string>
+    <string name="outros">Outros</string>
 </resources>
